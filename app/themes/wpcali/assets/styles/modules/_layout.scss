@@ -1,0 +1,28 @@
+// Extend your silent classes
+html {
+  @extend %html;
+}
+
+body {
+  @extend %body;
+}
+
+a {
+  @extend %a;
+}
+
+figure {
+  @extend %figure;
+}
+
+img {
+  @extend %img;
+}
+
+hr {
+  @extend %hr;
+}
+
+.container {
+  @extend %container;
+}

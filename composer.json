@@ -1,0 +1,77 @@
+{
+  "name": "kili/boilerplate",
+  "type": "project",
+  "description": "Kili Boilerplate is a modern WordPress stack that helps you get started with the best theme development tools and project structure.",
+  "homepage": "https://github.com/fabolivar/kili-boilerplate",
+  "authors": [
+    {
+      "name": "Fabian Altahona",
+      "email": "fabolivar@gmail.com",
+      "homepage": "https://github.com/fabolivar"
+    }
+  ],
+  "keywords": [
+    "kili",
+    "wordpress",
+    "composer"
+  ],
+  "support": {
+    "issues": "https://github.com/fabolivar/kili-boilerplate/issues"
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org",
+      "only": ["wpackagist-plugin/*", "wpackagist-theme/*"]
+    },
+    {
+      "type"                              : "package",
+      "package": {
+          "name": "kiliframework/kili-core",
+          "type": "wordpress-plugin",
+          "version": "1.0",
+          "dist": {
+            "url": "https://github.com/kiliframework/kili-core/archive/1.0.zip",
+            "type": "zip"
+          }
+      }
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "composer/installers": "^1.9.0",
+    "vlucas/phpdotenv": "^3.6.7",
+    "johnpbloch/wordpress": "^5.5.3",
+    "oscarotero/env": "^1.2.0",
+    "wpackagist-plugin/timber-library":"^1.18.2",
+    "kiliframework/kili-core": "1.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.5.8"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "installer-paths": {
+      "app/mu-plugins/{$name}/": [
+        "type:wordpress-muplugin"
+      ],
+      "app/plugins/{$name}/": [
+        "type:wordpress-plugin"
+      ],
+      "app/themes/{$name}/": [
+        "type:wordpress-theme"
+      ]
+    },
+    "wordpress-install-dir": "wp"
+  },
+  "scripts": {
+    "copy-env": [
+      "php -r \"copy('.env.example', '.env');\"// Use: composer run-script copy-env"
+    ]
+  }
+}
